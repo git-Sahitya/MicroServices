@@ -14,7 +14,7 @@ module.exports.register = async (req, res) => {
    // hashing the password using bcrypt
     const hash = await bcrypt.hash(password , 10)
 
-    const newUser = new userModel({name , email , password})
+    const newUser = new userModel({name , email , password:hash})
     await newUser.save()
 
     // set a jwt token 
